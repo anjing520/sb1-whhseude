@@ -4,8 +4,8 @@ backend:
 
 local_backend: true
 
-media_folder: "public/admin/media"
-public_folder: "/admin/media"
+media_folder: "public/cms/media"
+public_folder: "/cms/media"
 
 collections:
   - name: "blog"
