@@ -1,12 +1,11 @@
 backend:
-  name: github
-  repo: anjing520/sb1-whhseude   # 你的仓库
+  name: git-gateway
   branch: main
-  app_id: Ov23lidzkX68AclbDuA9   # 你的 Client ID
 
+local_backend: true
 
-media_folder: "public/cms/media"
-public_folder: "/cms/media"
+media_folder: "public/admin/media"
+public_folder: "/admin/media"
 
 collections:
   - name: "blog"
