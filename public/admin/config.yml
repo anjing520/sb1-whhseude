@@ -1,0 +1,36 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "public/admin/media"
+public_folder: "/admin/media"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "src/blog/posts"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string", hint: "The headline of the article" }
+      - { label: "Publish Date", name: "date", widget: "datetime", hint: "When the article was published" }
+      - { label: "Author", name: "author", widget: "string", default: "Meridian Editorial Team" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        default: "Industry Trends"
+        options:
+          - { label: "Air Freight", value: "Air Freight" }
+          - { label: "Ocean Freight", value: "Ocean Freight" }
+          - { label: "Customs Clearance", value: "Customs Clearance" }
+          - { label: "Warehousing", value: "Warehousing" }
+          - { label: "Industry Trends", value: "Industry Trends" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "A short summary shown in the blog list" }
+      - { label: "Cover Image URL", name: "image", widget: "string", hint: "Full URL to the cover image (e.g. a Pexels photo URL)" }
+      - { label: "Body", name: "body", widget: "markdown" }

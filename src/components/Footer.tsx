@@ -1,9 +1,24 @@
 import { Ship, Phone, Mail, MapPin, Linkedin, Facebook, Twitter } from 'lucide-react';
 
 const LINKS = {
-  Services: ['Air Freight', 'Ocean Freight', 'Customs Clearance', 'Warehousing'],
-  Company: ['About Us', 'Industries', 'Blog', 'Careers'],
-  Support: ['Track Shipment', 'Get a Quote', 'Contact', 'FAQ'],
+  Services: [
+    { label: 'Air Freight', href: '/#services' },
+    { label: 'Ocean Freight', href: '/#services' },
+    { label: 'Customs Clearance', href: '/#services' },
+    { label: 'Warehousing', href: '/#services' },
+  ],
+  Company: [
+    { label: 'About Us', href: '/#footer' },
+    { label: 'Industries', href: '/#advantages' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Careers', href: '/#footer' },
+  ],
+  Support: [
+    { label: 'Track Shipment', href: '/#process' },
+    { label: 'Get a Quote', href: '/' },
+    { label: 'Contact', href: '/#footer' },
+    { label: 'FAQ', href: '/#footer' },
+  ],
 };
 
 const SOCIAL = [Linkedin, Facebook, Twitter];
@@ -53,9 +68,9 @@ export default function Footer() {
               </h4>
               <ul className="mt-5 space-y-3 text-sm">
                 {items.map((item) => (
-                  <li key={item}>
-                    <a href="#home" className="hover:text-white transition-colors">
-                      {item}
+                  <li key={item.label}>
+                    <a href={item.href} className="hover:text-white transition-colors">
+                      {item.label}
                     </a>
                   </li>
                 ))}

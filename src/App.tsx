@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider } from '@/lib/auth';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
@@ -15,6 +15,8 @@ import AdminLayout from '@/components/AdminLayout';
 import RequireAdmin from '@/components/RequireAdmin';
 import AdminQuoteList from '@/components/AdminQuoteList';
 import AdminQuoteDetail from '@/components/AdminQuoteDetail';
+import BlogList from '@/components/BlogList';
+import BlogDetail from '@/components/BlogDetail';
 
 function HomePage() {
   const [quoteOpen, setQuoteOpen] = useState(false);
@@ -37,12 +39,41 @@ function HomePage() {
   );
 }
 
+function BlogListPage() {
+  const [quoteOpen, setQuoteOpen] = useState(false);
+  return (
+    <>
+      <BlogList onQuote={() => setQuoteOpen(true)} />
+      <QuoteModal open={quoteOpen} onClose={() => setQuoteOpen(false)} />
+    </>
+  );
+}
+
+function BlogDetailPage() {
+  const [quoteOpen, setQuoteOpen] = useState(false);
+  return (
+    <>
+      <BlogDetail onQuote={() => setQuoteOpen(true)} />
+      <QuoteModal open={quoteOpen} onClose={() => setQuoteOpen(false)} />
+    </>
+  );
+}
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  window.scrollTo(0, 0);
+  return null;
+}
+
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/blog" element={<BlogListPage />} />
+          <Route path="/blog/:slug" element={<BlogDetailPage />} />
           <Route path="/admin/signin" element={<AuthPage mode="signin" />} />
           <Route path="/admin/signup" element={<AuthPage mode="signup" />} />
           <Route

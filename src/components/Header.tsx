@@ -28,7 +28,7 @@ const NAV: NavItem[] = [
       { label: 'E-commerce Fulfillment', href: '#process' },
     ],
   },
-  { label: 'Blog', href: '#testimonials' },
+  { label: 'Blog', href: '/blog' },
   { label: 'About Us', href: '#footer' },
 ];
 
