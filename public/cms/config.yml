@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: anjing520/sb1-whhseude   # 你的仓库
   branch: main
+  auth_scope: repo
+  app_id: Ov23lidzkX68AclbDuA9   # 你的 Client ID
 
 local_backend: true
 
