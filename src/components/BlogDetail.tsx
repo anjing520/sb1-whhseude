@@ -168,6 +168,3 @@ export default function BlogDetail({ onQuote }: BlogDetailProps) {
     </div>
   );
 }
-
-
-export default BlogDetail
